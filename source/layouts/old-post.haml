@@ -1,16 +1,14 @@
 = wrap_layout 'layout' do
   
-  %body
-    
-    .old-post
-      %small.date
-        Posted on
-        = current_page.date.strftime('%b %e %Y')
-        by
-        %a{href: '/'} Joni Korpi
-      %h1
-        = current_page.title
-      %p.intro
-        = current_page.data.excerpt
-        
-      = yield
+  .old-post
+    %small.date
+      Posted on
+      = current_page.date.strftime('%b %e %Y')
+      by
+      %a{href: '/'} Joni Korpi
+    %h1
+      = current_page.title
+    %p.intro
+      = current_page.data.excerpt
+      
+    = yield
