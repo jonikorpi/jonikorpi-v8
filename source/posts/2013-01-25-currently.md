@@ -10,4 +10,4 @@ This layout flexes vertically and stacks sections horizontally (the opposite of 
 
 Currently this design uses **zero** media queries. It was very fast to build.
 
-While each section in a responsive design has [3 states](http://www.designbyfront.com/demo/goldilocks-approach/): _too big, too small_ and _just right,_ the sections in this design only have two: _too small_ and _just right._ The vertical flexing and horizontal stacking take care of _too big._ This removes a huge amount of required complexity from the design, leaving more time and opportunities for making interesting design decisions.
+While each section in a responsive design has [3 states](http://www.designbyfront.com/demo/goldilocks-approach/): _too big, too small_ and _just right,_ the sections in this design only have two: the vertical flexing and horizontal stacking take care of _too big._ This removes a huge amount of required complexity from the design, leaving more time and opportunities for making interesting design decisions.
