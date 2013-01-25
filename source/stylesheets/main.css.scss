@@ -115,10 +115,6 @@ p {
   max-width: lines(18) + em(1);
   border-right: 1px solid $highlight;
   
-  &:first-child {
-    
-  }
-  
   &:last-child {
     margin-right: lines(2);
   }

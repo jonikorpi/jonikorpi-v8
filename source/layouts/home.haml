@@ -1,0 +1,52 @@
+= wrap_layout 'layout' do
+
+  %body
+  
+    .column-wrapper
+    
+      .column.about
+        %header.logo
+          .avatar
+            = image_tag 'avatar-144.png'
+          %h1 Joni Korpi
+          %small Web Designer
+        = partial 'about'
+        %h2 Contact Details
+        %ul
+          %li
+            %a{href: 'http://twitter.com/jonikorpi/'}
+              @jonikorpi on Twitter
+              %small The quickest way to contact me
+          %li
+            %a{href: 'mailto:me@jonikorpi.com'}
+              me@jonikorpi.com
+              %small The slowest way to contact me
+        %h2 Profiles & Lists
+        %ul
+          %li
+            %a{href: 'http://www.amazon.co.uk/registry/wishlist/3DNZ9C088YCXL'}
+              Amazon Wish List
+              %small Things I'd like to own
+          %li
+            %a{href: 'https://donenotdone.com/loves/jonikorpi'}
+              Done Not Done
+              %small Things I'd hate to forget
+          %li
+            %a{href: 'http://dribbble.com/jonikorpi'}
+              Dribbble
+              %small Things I'm working on
+          %li 
+            %a{href: 'http://www.kickstarter.com/profile/89875074'}
+              Kickstarter
+              %small Things I hope will launch
+        %h2 Gaming
+        %ul
+          %li
+            %a{href: 'http://steamcommunity.com/id/siegedbybears/'}
+              Steam Profile
+              %small Weekend deal: friend requests -60%
+  
+      - blog.articles.each do |article|
+        - if article.data.project?
+          .column.project
+            = article.body
