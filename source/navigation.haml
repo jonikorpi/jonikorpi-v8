@@ -1,0 +1,17 @@
+%nav.navigation
+  %h1 Posts & Projects
+  %a{href: 'http://twitter.com/jonikorpi/'} Twitter
+  %a{href: '/feed.xml'} RSS
+  
+    
+  -# Tags
+    - blog.tags.each do |tag, articles|
+      = tag_path tag
+      = tag
+      = articles.size
+      
+  -# By year
+    - blog.articles.group_by {|a| a.date.year }.each do |year, articles|
+      = blog_year_path year
+      = year
+      = articles.size

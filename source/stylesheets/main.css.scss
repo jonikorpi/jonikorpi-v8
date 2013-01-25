@@ -1,0 +1,285 @@
+@charset "utf-8";
+@import 'compass';
+@import 'reset';
+
+
+/*----------
+  Typography
+  ----------*/
+  
+$font-size: 16;
+$line-height: 22;
+  
+@mixin elena {
+  font-family: elena-web-basic, serif;
+}
+
+@mixin ff-dagny {
+  font-family: ff-dagny-web-pro, sans-serif;
+}
+
+@mixin monospace {
+  font-family: Menlo, Consolas, monospace;
+}
+
+code {
+  @include monospace;
+}
+
+
+/*-------
+  Colours
+  -------*/
+
+$primary-hue: 270;
+$secondary-hue: 270 - (360/1.618);
+
+$background:  hsl($primary-hue, 23.6%, 9%);
+$highlight:   hsl($primary-hue, 9%, 14.6%);
+$purple:      hsl($primary-hue, 23.6%, 14.6%);
+
+$aside:       hsl($secondary-hue, 2.6%, 50%);
+$body:        hsl($secondary-hue, 5.6%, 61.8%);
+$emphasis:    hsl($secondary-hue, 14.6%, 76.4%);
+
+$link:        hsl($secondary-hue, 38.2%, 61.8%);
+
+
+/*------
+  Layout
+  ------*/
+
+body {
+  @include elena;
+  font-size: em($font-size, 16);
+  line-height: lines(1);
+  background: $background;
+  color: $body;
+}
+
+h1, h2, h3, strong {
+  @include ff-dagny;
+  color: $emphasis;
+}
+
+h2 {
+  margin-top: lines(2);
+  
+  &:first-child {
+    margin-top: 0;
+  }
+}
+
+a {
+  color: $link;
+  text-decoration: none;
+  border-bottom: em(1) solid transparent;
+  
+  &:hover {
+    border-bottom: em(1) solid $link;
+  }
+  
+  &:active {
+    color: $aside;
+    border-color: $aside;
+  }
+}
+
+p {
+  margin-top: lines(1);
+  
+  &:first-child { margin-top: 0; }
+}
+
+.column-wrapper {
+  font-size: 0px;
+  white-space: nowrap;
+  height: 100%;
+  width: 100%;
+  position: relative;
+}
+
+.column {
+  font-size: $font-size * 1px;
+  line-height: lines(1);
+  @include box-sizing(border-box);
+  display: inline-block;
+  vertical-align: top;
+  white-space: normal;
+  overflow: auto;
+  -webkit-overflow-scrolling: touch;
+  overflow-scrolling: touch;
+  padding: lines(3) lines(1.5) lines(5);
+  width: 100%;
+  height: 100%;
+  max-width: lines(18) + em(1);
+  border-right: 1px solid $highlight;
+  
+  &:first-child {
+    
+  }
+  
+  &:last-child {
+    margin-right: lines(2);
+  }
+}
+
+.column::-webkit-scrollbar {
+  width: lines(0.5);
+}
+
+.column::-webkit-scrollbar-thumb {
+  background: rgba(0,0,0, 0.236);
+  @include border-radius( lines(0.25) );
+  @include box-shadow( inset 0 0 em(2) rgba(255,255,255, 0.382) );
+}
+
+
+/*-----
+  About
+  -----*/
+
+.about {
+  max-width: lines(13);
+  background: $purple;
+  
+  .logo {
+    position: relative;
+    padding-left: lines(3);
+  }
+
+  .avatar {
+    width: lines(2);
+    border: lines(0.25) solid $background;
+    position: absolute;
+    top: lines(-0.25); left: 0;
+    @include border-radius(em(3));
+    
+    img {
+      width: 100%;
+      display: block;
+    }
+  }
+  
+  p {
+    @include hyphens(auto);
+  }
+  
+  li {
+    list-style: none;
+    margin-top: lines(1);
+    
+    a {
+      @include ff-dagny;
+    }
+    
+    small {
+      display: block;
+      color: $aside;
+      @include elena;
+    }
+    
+  }
+  
+  .sidenote {
+    color: $aside;
+  }
+  
+}
+  
+/*--------
+  Projects
+  --------*/
+
+.project {
+  
+  img {
+    display: block;
+    width: 100%;
+    
+    &:before {
+      content: "lol";
+    }
+  }
+  
+  h1 {
+    font-style: italic;
+  }
+  
+  h1 + p {
+    margin-top: 0;
+  }
+  
+  hr {
+    border-bottom: em(1) solid $highlight;
+    margin: lines(1) 0 (lines(1) - em(1));
+  }
+  
+}
+  
+  
+/*---------
+  Old posts
+  ---------*/
+  
+.old-post {
+  max-width: lines(21);
+  margin: 0 auto;
+  padding: lines(3) lines(1.5) lines(5);
+  position: relative;
+  
+  .date {
+    color: $aside;
+    font-style: italic;
+    display: block;
+    margin-bottom: lines(1);
+  }
+  
+  h1 {
+    font-size: em(42);
+    line-height: lines(2, 42);
+    font-style: italic;
+  }
+  
+  .intro {
+    margin-top: lines(0.5, 22);
+    font-size: em(26);
+    line-height: lines(1.25, 22);
+    color: $emphasis;
+    font-style: italic;
+  }
+  
+  p, ul, ol, pre {
+    margin-top: lines(1);
+  }
+  
+  ul, ol {
+    margin-left: lines(1);
+  }
+  
+  figure {
+    position: relative;
+    margin: lines(2) 0;
+  }
+  
+  img {
+    max-width: 100%;
+  }
+  
+  figcaption {
+    text-align: center;
+    color: $aside;
+    margin-top: lines(0.5);
+  }
+  
+  pre {
+    white-space: pre-wrap;
+  }
+  
+  code {
+    font-size: em(13);
+    line-height: lines(0.75, 13);
+    color: $emphasis;
+  }
+  
+}
