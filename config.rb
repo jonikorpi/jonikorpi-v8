@@ -6,7 +6,7 @@ Time.zone = "EET"
 
 activate :blog do |blog|
   # blog.prefix = "blog"
-  blog.permalink = ":title"
+  blog.permalink = ":title/"
   blog.sources = "posts/:year-:month-:day-:title.html"
   # blog.taglink = "tags/:tag.html"
   blog.layout = "layouts/old-post"
