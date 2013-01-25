@@ -38,7 +38,7 @@ $background:  hsl($primary-hue, 23.6%, 9%);
 $highlight:   hsl($primary-hue, 9%, 14.6%);
 $purple:      hsl($primary-hue, 23.6%, 14.6%);
 
-$aside:       hsl($secondary-hue, 2.6%, 50%);
+$aside:       hsl($secondary-hue, 2.6%, 38.2%);
 $body:        hsl($secondary-hue, 5.6%, 61.8%);
 $emphasis:    hsl($secondary-hue, 14.6%, 76.4%);
 
@@ -62,14 +62,6 @@ h1, h2, h3, strong {
   color: $emphasis;
 }
 
-h2 {
-  margin-top: lines(2);
-  
-  &:first-child {
-    margin-top: 0;
-  }
-}
-
 a {
   color: $link;
   text-decoration: none;
@@ -87,8 +79,14 @@ a {
 
 p {
   margin-top: lines(1);
+  @include hyphens(auto);
   
   &:first-child { margin-top: 0; }
+}
+
+hr {
+  border-bottom: em(1) solid $highlight;
+  margin: lines(1) 0 (lines(1) - em(1));
 }
 
 .column-wrapper {
@@ -98,6 +96,9 @@ p {
   width: 100%;
   position: relative;
 }
+
+$narrow-column: lines(13) + em(1);
+$wide-column: lines(21) + em(1);
 
 .column {
   font-size: $font-size * 1px;
@@ -109,14 +110,27 @@ p {
   overflow: auto;
   -webkit-overflow-scrolling: touch;
   overflow-scrolling: touch;
-  padding: lines(3) lines(1.5) lines(5);
+  padding: lines(2.5) lines(1.5) 0;
   width: 100%;
   height: 100%;
-  max-width: lines(18) + em(1);
+  max-width: $wide-column;
   border-right: 1px solid $highlight;
+  
+  * {
+    visibility: hidden;
+    
+    .wf-active &,
+    .no-js & {
+      visibility: visible;
+    }
+  }
   
   &:last-child {
     margin-right: lines(2);
+  }
+  
+  & > *:last-child {
+    margin-bottom: lines(4);
   }
 }
 
@@ -136,8 +150,9 @@ p {
   -----*/
 
 .about {
-  max-width: lines(13);
+  max-width: $narrow-column;
   background: $purple;
+  border-color: lighten($highlight, 9%);
   
   .logo {
     position: relative;
@@ -157,8 +172,14 @@ p {
     }
   }
   
-  p {
-    @include hyphens(auto);
+  hr {
+    border-color: lighten($highlight, 9%);
+  }
+  
+  h2 {
+    @include elena;
+    font-weight: normal;
+    font-style: italic;
   }
   
   li {
@@ -171,8 +192,9 @@ p {
     
     small {
       display: block;
-      color: $aside;
+      color: $body;
       @include elena;
+      font-style: italic;
     }
     
   }
@@ -192,23 +214,36 @@ p {
   img {
     display: block;
     width: 100%;
+  }
+  
+  ul, ol {
+    margin-left: em(16);
+    margin-top: lines(1);
+  }
+  
+  ul li {
+    list-style: none;
+    position: relative;
     
     &:before {
-      content: "lol";
+      content: "–";
+      position: absolute;
+      left: em(-16);
     }
   }
   
-  h1 {
+}
+
+.writing-in-2011 {
+  max-width: $narrow-column;
+  
+  h1,
+  h1 + p {
     font-style: italic;
   }
   
   h1 + p {
-    margin-top: 0;
-  }
-  
-  hr {
-    border-bottom: em(1) solid $highlight;
-    margin: lines(1) 0 (lines(1) - em(1));
+    margin-top: lines(0.25);
   }
   
 }

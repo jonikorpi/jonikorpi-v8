@@ -2,6 +2,7 @@
 title: Leaving Old Internet Explorer Behind
 excerpt: Using media queries to make a clean break from legacy browsers.
 layout: old-post
+oldpost: true
 ---
 
 This site was designed [Mobile First](http://www.lukew.com/ff/entry.asp?933). The styles that make up the mobile version of its layout, which I'll call the Narrow Layout from now on, are not inside a media query, while the styles that make up the wider versions are. As a result, browsers with no support for media queries will only see the Narrow Layout. This is a good thing.
@@ -24,7 +25,7 @@ For example, I gave the layout a static width to make sure the content never str
 As a result, old mobile browsers will see a fluid single-column layout, and IE6–8 will see a similar static-width layout, perfectly comfortable for reading even on larger screens.
 
 <figure>
-	<img src="/images/leaving-old-IE-behind.jpg" alt="This site in IE7"/>
+	<img src="/images/old-posts/leaving-old-IE-behind.jpg" alt="This site in IE7"/>
 	<figcaption>This is roughly what this site looks like in IE7.</figcaption>
 </figure>
 

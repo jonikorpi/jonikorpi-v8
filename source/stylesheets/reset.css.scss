@@ -165,12 +165,12 @@ input, textarea, button, select {
 
   
 ::-webkit-input-placeholder {
-  line-height: normal;
+  line-height: inherit;
   vertical-align: baseline;
 }
 
 :-moz-placeholder {
-  line-height: normal;
+  line-height: inherit;
   vertical-align: baseline;
 }
 

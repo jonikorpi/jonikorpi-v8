@@ -2,6 +2,7 @@
 title: A Smoother Page Load
 excerpt: An unexpected opportunity to control how the page loads, using Typekit.
 layout: old-post
+oldpost: true
 ---
 
 I finally have a blog. For the longest time I haven't been able to let out the endless rambles about all the little design detail and theories bouncing around in my head. Now I can, and _will._
@@ -52,7 +53,7 @@ To alleviate this effect, I added a little loading spinner as a GIF image. Since
 	}
 
 <figure>
-	<img src="../images/a-smoother-page-load.png" alt="Loading spinner vs. no loading spinner"/>
+	<img src="../images/old-posts/a-smoother-page-load.png" alt="Loading spinner vs. no loading spinner"/>
 	<figcaption>Before and after. The spinner makes it clear something is happening.</figcaption>
 </figure>
 

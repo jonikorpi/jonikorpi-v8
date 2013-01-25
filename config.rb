@@ -66,6 +66,35 @@ page "/feed.xml", :layout => false
 # Helpers
 ###
 
+helpers do
+
+  def ie_tag(name=:body, attrs={}, &block)
+    attrs.symbolize_keys!
+    haml_concat("<!--[if lt IE 7]> #{ tag(name, add_class('ie6 oldie', attrs)) } <![endif]-->")
+    haml_concat("<!--[if IE 7]>    #{ tag(name, add_class('ie7 oldie', attrs)) } <![endif]-->")
+    haml_concat("<!--[if IE 8]>    #{ tag(name, add_class('ie8 oldie', attrs)) } <![endif]-->")
+    haml_concat("<!--[if gt IE 8]><!-->")
+    haml_tag name, attrs do
+      haml_concat("<!--<![endif]-->")
+      block.call
+    end
+  end
+
+  def ie_html(attrs={}, &block)
+    ie_tag(:html, attrs, &block)
+  end
+
+  def add_class(name, attrs)
+    classes = attrs[:class] || ''
+    classes.strip!
+    classes = ' ' + classes if !classes.blank?
+    classes = name + classes
+    attrs.merge(:class => classes)
+  end
+  
+end
+
+
 # Automatic image dimensions on image_tag helper
 # activate :automatic_image_sizes
 
@@ -90,13 +119,13 @@ set :markdown, :fenced_code_blocks => true,
 # Build-specific configuration
 configure :build do
   # For example, change the Compass output style for deployment
-  # activate :minify_css
+  activate :minify_css
   
   # Minify Javascript on build
-  # activate :minify_javascript
+  activate :minify_javascript
   
   # Enable cache buster
-  # activate :cache_buster
+  activate :cache_buster
   
   # Use relative URLs
   # activate :relative_assets

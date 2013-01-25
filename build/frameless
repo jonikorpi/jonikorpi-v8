@@ -3,22 +3,19 @@
   <head>
     <meta charset='utf-8' />
     <title>
-      Frameless
+      Joni Korpi
     </title>
     <meta content='width=device-width, initial-scale=1.0' name='viewport' />
-    <link href="/stylesheets/main.css" media="screen" rel="stylesheet" type="text/css" />
-    <script src="/javascripts/main.js" type="text/javascript"></script>
+    <link href="/stylesheets/main.css?1359145051" media="screen" rel="stylesheet" type="text/css" />
+    <script src="/javascripts/main.js?1359145051" type="text/javascript"></script>
+    <script src='//use.typekit.net/tdk6ecz.js'></script>
     <script type='text/javascript'>
       //<![CDATA[
-        (function() {
-          var config = {
-            kitId: 'tdk6ecz',
-            scriptTimeout: 3000
-          };
-          var h=document.getElementsByTagName("html")[0];h.className+=" wf-loading";var t=setTimeout(function(){h.className=h.className.replace(/(\s|^)wf-loading(\s|$)/g," ");h.className+=" wf-inactive"},config.scriptTimeout);var tk=document.createElement("script"),d=false;tk.src='//use.typekit.net/'+config.kitId+'.js';tk.type="text/javascript";tk.async="true";tk.onload=tk.onreadystatechange=function(){var a=this.readyState;if(d||a&&a!="complete"&&a!="loaded")return;d=true;clearTimeout(t);try{Typekit.load(config)}catch(b){}};var s=document.getElementsByTagName("script")[0];s.parentNode.insertBefore(tk,s)
-        })();
+        try{Typekit.load();}catch(e){}
       //]]>
     </script>
+    <link href='/images/avatar-144.png' rel='shortcut icon' />
+    <link href='/images/avatar-144.png' rel='apple-touch-icon' />
   </head>
   <body>
     <div class='old-post'>
@@ -38,7 +35,11 @@
       
       <p>The concept: adapt column by column, not pixel by pixel. Create a column grid with an infinite number of columns, and activate and deactivate columns as needed, never changing the grid’s column and gutter widths. The result is a grid that adapts only when there’s enough space on the screen to do so, never compromising the ratios its dimensions are based on.</p>
       
-      <p><img src="/images/projects/frameless.jpg" alt="" /></p>
+      <figure>
+        <img src="/images/projects/frameless.jpg" />
+      </figure>
     </div>
   </body>
 </html>
+
+

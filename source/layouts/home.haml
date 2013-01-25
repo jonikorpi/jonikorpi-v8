@@ -5,12 +5,17 @@
     .column-wrapper
     
       .column.about
+      
         %header.logo
           .avatar
             = image_tag 'avatar-144.png'
           %h1 Joni Korpi
           %small Web Designer
+
         = partial 'about'
+
+        %hr
+
         %h2 Contact Details
         %ul
           %li
@@ -21,6 +26,9 @@
             %a{href: 'mailto:me@jonikorpi.com'}
               me@jonikorpi.com
               %small The slowest way to contact me
+
+        %hr
+
         %h2 Profiles & Lists
         %ul
           %li
@@ -39,14 +47,17 @@
             %a{href: 'http://www.kickstarter.com/profile/89875074'}
               Kickstarter
               %small Things I hope will launch
+
+        %hr
+        
         %h2 Gaming
         %ul
           %li
             %a{href: 'http://steamcommunity.com/id/siegedbybears/'}
               Steam Profile
-              %small Weekend deal: friend requests -60%
+              %small Games, half of them unplayed
   
       - blog.articles.each do |article|
-        - if article.data.project?
-          .column.project
+        - if not article.data.oldpost?
+          .column.project{class: "#{article.slug}"}
             = article.body
