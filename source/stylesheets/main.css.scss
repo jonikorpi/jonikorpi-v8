@@ -201,6 +201,8 @@ $wide-column: lines(21) + em(1);
       font-style: italic;
     }
     
+    a:hover small { color: $emphasis; }
+    
   }
   
   .sidenote {
