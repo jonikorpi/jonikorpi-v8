@@ -55,6 +55,7 @@ body {
   line-height: lines(1);
   background: $background;
   color: $body;
+  -webkit-tap-highlight-color: $link;
 }
 
 h1, h2, h3, strong {
@@ -76,6 +77,9 @@ a {
     border-color: $aside;
   }
 }
+
+::selection      { background: hsl($primary-hue, 38.2%, 61.8%); color: $emphasis; }
+-moz-::selection { background: hsl($primary-hue, 38.2%, 61.8%); color: $emphasis; }
 
 p {
   margin-top: lines(1);
