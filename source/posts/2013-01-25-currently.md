@@ -1,7 +1,7 @@
 **I'm currently working on** the following problems:
 
 1. Designing a responsive layout that makes sense on large screens.
-2. Cutting down on the amount of time it takes to design and build a good responsie website.
+2. Cutting down on the amount of time it takes to design and build a good responsive website.
 3. Making the results of a responsive design process more beautiful.
 
 This site uses a prototype layout that attempts to solve these problems. Here's roughly how it works:
@@ -21,7 +21,7 @@ The layout is still very experimental, so there are plenty of issues with it:
 - Many touch devices fail at horizontal viewport scrolling.
 - Many of them also fail at vertical overflow scrolling.
 - Some of them can do both, but not at the same time.
-- Many PCs are operated with mice and trackpads that make horizontal scrolling awkward.
+- Many PCs are operated with the kind of mice and trackpads that make horizontal scrolling awkward.
 - Horizontal scrolling can feel awkward on small screens.
 - The layout is very _different,_ so it's going to trigger a negative reaction in change-averse people.
 
