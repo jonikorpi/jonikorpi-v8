@@ -124,7 +124,8 @@ $wide-column: lines(21) + em(1);
     visibility: hidden;
     
     .wf-active &,
-    .no-js & {
+    .no-js &,
+    .neckbeardFallback & {
       visibility: visible;
     }
   }
