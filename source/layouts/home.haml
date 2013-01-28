@@ -57,5 +57,5 @@
 
     - blog.articles.each do |article|
       - if not article.data.oldpost?
-        .column.project{class: "#{article.slug}"}
+        .column.project{id: "#{article.slug}"}
           = article.body
