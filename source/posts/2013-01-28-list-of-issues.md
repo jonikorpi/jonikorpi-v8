@@ -2,13 +2,12 @@
 
 This layout used on this site is still very experimental, so there are plenty of issues with it. So far, I've come across these:
 
-- Many PCs are operated with the kind of mice and trackpads that make horizontal scrolling awkward. 
-  - _Fix: section by section navigation with clickable buttons and arrow keys?_
-- Horizontal scrolling can feel awkward on small screens. 
-  - _Fix: make horizontal swipes scroll section by section?_
+- Many PCs are operated with the kind of mice and trackpads that make horizontal scrolling awkward. _(Fix: section by section navigation with clickable buttons and arrow keys?)_
+- Horizontal scrolling can feel awkward on small screens. _(Fix: make horizontal swipes scroll section by section?)_
 - The layout is very _different,_ so it's going to trigger a negative reaction in change-averse people.
 - Old iOS devices, old Android devices and Nokia N9 require two fingers to scroll sections.
 - Sony X10 Mini won't scroll sections at all.
+- Scrollable sections could be indicated better in Webkit browsers. _(Fix: `-webkit-scrollbars`?)_
 - [There appears to be a pea on one of the scrollbars.](https://twitter.com/benbrignell/status/295925510003908608)
 
 Additionally, different issues appear depending on which method is used to make the page horizontally scrollable.
