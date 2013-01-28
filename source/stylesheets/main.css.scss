@@ -93,12 +93,23 @@ hr {
   margin: lines(1) 0 (lines(1) - em(1));
 }
 
+code {
+  font-size: em(14);
+  line-height: lines(0.75, 14);
+  color: $emphasis;
+  font-family: Menlo, Consolas, monospace;
+}
+
 .column-wrapper {
   font-size: 0px;
   white-space: nowrap;
   height: 100%;
   width: 100%;
   position: relative;
+  //overflow: hidden;
+  //overflow-x: auto;
+  //-webkit-overflow-scrolling: touch;
+  //overflow-scrolling: touch;
 }
 
 $narrow-column: lines(13) + em(1);
@@ -111,7 +122,8 @@ $wide-column: lines(21) + em(1);
   display: inline-block;
   vertical-align: top;
   white-space: normal;
-  overflow: auto;
+  overflow: hidden;
+  overflow-y: auto;
   -webkit-overflow-scrolling: touch;
   overflow-scrolling: touch;
   padding: lines(2.5) lines(1.5) 0;
@@ -312,12 +324,6 @@ $wide-column: lines(21) + em(1);
   
   pre {
     white-space: pre-wrap;
-  }
-  
-  code {
-    font-size: em(13);
-    line-height: lines(0.75, 13);
-    color: $emphasis;
   }
   
 }
