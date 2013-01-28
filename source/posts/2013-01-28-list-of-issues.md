@@ -7,7 +7,6 @@ This layout used on this site is still very experimental, so there are plenty of
 - The layout is very _different,_ so it's going to trigger a negative reaction in change-averse people.
 - Old iOS devices, old Android devices and Nokia N9 require two fingers to scroll sections.
 - Sony X10 Mini won't scroll sections at all.
-- Scrollable sections could be indicated better in Webkit browsers. _(Fix: `-webkit-scrollbars`?)_
 - Browser "back to top" shortcuts don't work. _(Fix: Add "Back to top" and possibly "Next section" links at the bottom of each section?)_
 - [There appears to be a pea on one of the scrollbars.](https://twitter.com/benbrignell/status/295925510003908608)
 
