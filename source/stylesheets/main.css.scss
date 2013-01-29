@@ -132,6 +132,7 @@ $wide-column: lines(21) + em(1) + lines(0.5);
   height: 100%;
   max-width: $wide-column;
   border-right: 1px solid $highlight;
+  border-right-color: rgba(255,255,255, 0.09);
   
   * {
     visibility: hidden;
@@ -172,7 +173,6 @@ $wide-column: lines(21) + em(1) + lines(0.5);
 .about {
   max-width: $narrow-column;
   background: $purple;
-  border-color: lighten($highlight, 9%);
   
   .logo {
     position: relative;
