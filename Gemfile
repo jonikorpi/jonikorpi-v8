@@ -6,3 +6,6 @@ gem "kramdown"
 
 # For feed.xml.builder
 gem "builder", "~> 3.0.0"
+
+gem 'rack-rewrite', '~> 1.2.1'
+gem "thin"
