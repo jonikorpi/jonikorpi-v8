@@ -179,6 +179,7 @@ $wide-column: lines(21) + em(1) + lines(0.5);
   .logo {
     position: relative;
     padding-left: lines(3);
+    z-index: 1;
   }
 
   .avatar {
@@ -187,6 +188,11 @@ $wide-column: lines(21) + em(1) + lines(0.5);
     position: absolute;
     top: lines(-0.25); left: 0;
     @include border-radius(em(3));
+    @include transition(all 0.685s ease-in-out);
+    
+    &:hover {
+      @include rotate(360deg);
+    }
     
     img {
       width: 100%;
