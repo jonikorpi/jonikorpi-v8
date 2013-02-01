@@ -35,7 +35,7 @@ $(function() {
   
     var scrollAmount;
     var viewportScrolled = $(document).scrollLeft();
-    var firstColumn;
+    var chosenColumn;
 
     if (direction == 'right') {
       var columnsSelector = $('.column');
@@ -46,12 +46,13 @@ $(function() {
     }
 
     columnsSelector.each(function() {
-      var columnPosition = $(this).offset().left;
+      var $this = $(this);
+      var columnPosition = $this.offset().left;
       
       if (direction == 'right') {
         if (columnPosition > viewportScrolled) {
-          firstColumn = $(this);
-          scrollAmount = $(this).offset().left;
+          chosenColumn = $this;
+          scrollAmount = $this.offset().left;
           return false;
         }
         if (viewportScrolled + $(window).width() == $(document).width()) {
@@ -60,8 +61,8 @@ $(function() {
       }
       else if (direction == 'left') {
         if (columnPosition < viewportScrolled) {
-          firstColumn = $(this);
-          scrollAmount = $(this).offset().left;
+          chosenColumn = $this;
+          scrollAmount = $this.offset().left;
           return false;
         }
         if (viewportScrolled == 0) {
