@@ -9,7 +9,7 @@
     %meta{name: 'viewport', content: 'width=device-width, initial-scale=1.0'}
     
     = stylesheet_link_tag "main"
-    = javascript_include_tag "main"
+    = javascript_include_tag "modernizr"
 
     :javascript
       (function() {
@@ -27,16 +27,10 @@
   
   %body
     = yield
-    
+
+    = javascript_include_tag "//ajax.googleapis.com/ajax/libs/jquery/1.9.0/jquery.min.js"
     :javascript
-      var _gauges = _gauges || [];
-      (function() {
-        var t   = document.createElement('script');
-        t.type  = 'text/javascript';
-        t.async = true;
-        t.id    = 'gauges-tracker';
-        t.setAttribute('data-site-id', '4f646a2d613f5d34f200009b');
-        t.src = '//secure.gaug.es/track.js';
-        var s = document.getElementsByTagName('script')[0];
-        s.parentNode.insertBefore(t, s);
-      })();
+      if (typeof jQuery == 'undefined') {
+        document.write(unescape("%3Cscript src='/javascripts/jquery.min.js'%3E%3C/script%3E"));
+      }
+    = javascript_include_tag "main"
