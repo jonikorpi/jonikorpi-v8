@@ -71,7 +71,7 @@ $(function() {
     });
     
     event.preventDefault();
-    $(scrollElement).animate(
+    $(scrollElement).stop().animate(
       {"scrollLeft": scrollAmount}, 
       scrollTime, 
       scrollEasing
