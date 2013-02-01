@@ -2,7 +2,7 @@
 
 This layout used on this site is still very experimental, so there are plenty of issues with it. So far, I've come across these:
 
-- Many mice and trackpads are terrible at horizontal scrolling. **Keyboard navigation now enabled!**
+- Many mice and trackpads are terrible at horizontal scrolling. _(Keyboard navigation now enabled.)_
 - Horizontal scrolling can feel awkward on small screens.
 - Old iOS devices and Nokia N9 require two fingers to scroll sections.
 - Android 1.6–2.3 browsers can't scroll sections at all.
