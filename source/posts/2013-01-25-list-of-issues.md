@@ -2,12 +2,11 @@
 
 This layout used on this site is still very experimental, so there are plenty of issues with it. So far, I've come across these:
 
-- Horizontal scrolling can feel awkward on small screens. _(Fix: make horizontal swipes scroll section by section?)_
-- The layout is very _different,_ so it's going to trigger a negative reaction in change-averse people.
+- Many mice and trackpads are terrible at horizontal scrolling. **Keyboard navigation now enabled!**
+- Horizontal scrolling can feel awkward on small screens.
 - Old iOS devices and Nokia N9 require two fingers to scroll sections.
 - Android 1.6–2.3 browsers can't scroll sections at all.
-- Browser "back to top" shortcuts don't work. _(Fix: Add "Back to top" and possibly "Next section" links at the bottom of each section?)_
-- [There appears to be a pea on one of the scrollbars.](https://twitter.com/benbrignell/status/295925510003908608)
+- Browser "back to top" shortcuts don't work.
 
 Additionally, different issues appear depending on which method is used to make the page horizontally scrollable.
 
