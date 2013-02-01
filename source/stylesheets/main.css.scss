@@ -16,6 +16,8 @@ $line-height: 22;
 
 @mixin ff-dagny {
   font-family: ff-dagny-web-pro, sans-serif;
+  font-size: em($font-size - 1, $font-size);
+  line-height: lines(1, $font-size - 1)
 }
 
 @mixin monospace {
