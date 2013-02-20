@@ -106,7 +106,7 @@ code {
 .column-wrapper {
   font-size: 0px;
   white-space: nowrap;
-  height: 100%;
+  //height: 100%;
   width: 100%;
   position: relative;
   //overflow: hidden;
@@ -120,21 +120,19 @@ $wide-column: lines(21) + em(1) + lines(0.5);
 
 .column {
   font-size: $font-size * 1px;
-  line-height: lines(1);
   @include box-sizing(border-box);
   display: inline-block;
   vertical-align: top;
   white-space: normal;
-  overflow: hidden;
-  overflow-y: auto;
+  position: relative;
+  //overflow: hidden;
+  //overflow-y: auto;
   -webkit-overflow-scrolling: touch;
-  overflow-scrolling: touch;
-  padding: lines(2.5) lines(1.5) 0;
+  //overflow-scrolling: touch;
+  padding: lines(2) lines(1.5) lines(3);
   width: 100%;
-  height: 100%;
+  //height: 100%;
   max-width: $wide-column;
-  border-right: 1px solid $highlight;
-  border-right-color: rgba(255,255,255, 0.09);
   
   * {
     visibility: hidden;
@@ -150,8 +148,19 @@ $wide-column: lines(21) + em(1) + lines(0.5);
     margin-right: lines(2);
   }
   
-  & > *:last-child {
-    margin-bottom: lines(4);
+  &:before,
+  &:after {
+      content: "";
+      position: absolute;
+      top: lines(2); bottom: lines(3);
+      right: 0;
+      width: 1px;
+      background-color: $highlight;
+  }
+  
+  &:before {
+      right: auto;
+      left: -1px;
   }
 }
 
@@ -174,7 +183,19 @@ $wide-column: lines(21) + em(1) + lines(0.5);
 
 .about {
   max-width: $narrow-column;
-  background: $purple;
+  
+  /*&:before {
+      width: 100%;
+      background: $purple;
+      top: 0; bottom: 0;
+      z-index: -1;
+  }
+  
+  &:after {
+      top: 0; bottom: 0;
+      z-index: 100;
+      background: desaturate( lighten($purple, 9%), 9%);
+  }*/
   
   .logo {
     position: relative;
@@ -264,6 +285,10 @@ $wide-column: lines(21) + em(1) + lines(0.5);
       position: absolute;
       left: em(-16);
     }
+  }
+  
+  del {
+      color: $aside;
   }
   
   h1 {

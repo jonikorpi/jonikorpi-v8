@@ -10,7 +10,7 @@ Here's roughly how it works:
 
 - Each section on a page is stacked horizontally.
 - A section's content flows vertically.
-- If a section's content is taller than the viewport, the section becomes scrollable.
+- <del>If a section's content is taller than the viewport, the section becomes scrollable.</del>
 - A section is never wider than the viewport.
 - A section is never wider than what is optimal for its content.
 

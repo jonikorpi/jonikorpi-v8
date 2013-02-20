@@ -4,9 +4,9 @@ The layout used on this site is still very experimental, so there are plenty of 
 
 - Many mice and trackpads are terrible at horizontal scrolling. _(Keyboard navigation now enabled.)_
 - Horizontal scrolling can feel awkward on small screens.
-- Old iOS devices and Nokia N9 require two fingers to scroll sections.
-- Android 1.6–2.3 browsers can't scroll sections at all.
-- Browser "back to top" shortcuts don't work.
+- <del>Old iOS devices and Nokia N9 require two fingers to scroll sections.</del>
+- <del>Android 1.6–2.3 browsers can't scroll sections at all.</del>
+- <del>Browser "back to top" shortcuts don't work.</del>
 
 Additionally, different issues appear depending on which method is used to make the page horizontally scrollable.
 
