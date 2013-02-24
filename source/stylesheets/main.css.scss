@@ -51,6 +51,11 @@ $link:        hsl($secondary-hue, 38.2%, 61.8%);
 /*------
   Layout
   ------*/
+  
+$narrow-column: lines(10) + em(1);
+$wide-column: lines(16) + em(1);
+  
+$narrow: "screen and (min-width: #{$wide-column})";
 
 body {
   @include elena;
@@ -101,12 +106,13 @@ code {
   line-height: lines(0.75, 13);
   color: $offset;
   font-family: Menlo, Consolas, monospace;
+  font-weight: normal;
 }
 
 .column-wrapper {
   font-size: 0px;
   white-space: nowrap;
-  //height: 100%;
+  height: 100%;
   width: 100%;
   position: relative;
   //overflow: hidden;
@@ -115,24 +121,30 @@ code {
   //overflow-scrolling: touch;
 }
 
-$narrow-column: lines(13) + em(1) + lines(0.5);
-$wide-column: lines(21) + em(1) + lines(0.5);
-
 .column {
   font-size: $font-size * 1px;
   @include box-sizing(border-box);
   display: inline-block;
   vertical-align: top;
   white-space: normal;
-  //position: relative;
-  //overflow: hidden;
-  //overflow-y: auto;
-  -webkit-overflow-scrolling: touch;
+  position: relative;
+  overflow: hidden;
+  overflow-y: auto;
+  //-webkit-overflow-scrolling: touch;
   //overflow-scrolling: touch;
-  padding: lines(2) lines(1.5) lines(3);
+  padding: lines(1.5) lines(1) 0;
   width: 100%;
-  //height: 100%;
-  max-width: $wide-column;
+  height: 100%;
+  max-width: $wide-column + lines(1)*2;
+  border-right: 1px solid $highlight;
+  
+  & > *:last-child { margin-bottom: lines(2); }
+  
+  @media #{$narrow} {
+    max-width: $wide-column + lines(1.5)*2;
+    padding: lines(2) lines(1.5) 0;
+    & > *:last-child { margin-bottom: lines(3); }
+  }
   
   * {
     visibility: hidden;
@@ -143,29 +155,9 @@ $wide-column: lines(21) + em(1) + lines(0.5);
       visibility: visible;
     }
   }
-  
-  &:last-child {
-    margin-right: lines(2);
-  }
-  
-  &:before,
-  &:after {
-      content: "";
-      position: absolute;
-      top: lines(0); bottom: lines(0);
-      //right: 0;
-      width: 1px;
-      background-color: $highlight;
-      margin-left: lines(-1.5);
-  }
-  
-  &:before {
-      //right: auto;
-      //left: -1px;
-  }
 }
 
-.column::-webkit-scrollbar {
+/*.column::-webkit-scrollbar {
   width: lines(0.5);
 }
 
@@ -175,7 +167,7 @@ $wide-column: lines(21) + em(1) + lines(0.5);
   border: em(2) solid rgba(255,255,255, 0.09);
   border-right-width: em(1);
   //@include box-shadow( inset 0 0 em(2) rgba(255,255,255, 0.382) );
-}
+}*/
 
 
 /*-----
@@ -183,32 +175,29 @@ $wide-column: lines(21) + em(1) + lines(0.5);
   -----*/
 
 .about {
-  max-width: $narrow-column;
-  
-  /*&:before {
-      width: 100%;
-      background: $purple;
-      top: 0; bottom: 0;
-      z-index: -1;
+  max-width: $narrow-column + lines(1)*2;
+  background: $purple;
+  border-color: desaturate( lighten($purple, 5.6%), 5.6% );
+
+  @media #{$narrow} {
+    max-width: $narrow-column + lines(1.5)*2;
   }
-  
-  &:after {
-      top: 0; bottom: 0;
-      z-index: 100;
-      background: desaturate( lighten($purple, 9%), 9%);
-  }*/
   
   .logo {
     position: relative;
-    padding-left: lines(3);
+    padding-left: lines(2.625);
     z-index: 1;
+    
+    small {
+      color: $emphasis;
+    }
   }
 
   .avatar {
     width: lines(2);
-    border: lines(0.25) solid $background;
+    border: lines(0.125) solid $background;
     position: absolute;
-    top: lines(-0.25); left: 0;
+    top: lines(-0.125); left: 0;
     @include border-radius(em(3));
     @include transition(all 0.685s ease-in-out);
     
@@ -223,7 +212,7 @@ $wide-column: lines(21) + em(1) + lines(0.5);
   }
   
   hr {
-    border-color: lighten($highlight, 0%);
+    border-color: desaturate( lighten($purple, 5.6%), 5.6% );
   }
   
   h2 {
@@ -301,7 +290,11 @@ $wide-column: lines(21) + em(1) + lines(0.5);
 }
 
 #writing-in-2011 {
-  max-width: $narrow-column;
+  max-width: $narrow-column + lines(1)*2;
+
+  @media #{$narrow} {
+    max-width: $narrow-column + lines(1.5)*2;
+  }
   
   h1,
   h1 + p {
