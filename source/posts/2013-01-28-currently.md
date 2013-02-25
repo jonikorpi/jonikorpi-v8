@@ -18,14 +18,18 @@ Also, the design of each these sections only requires 2 of the [3 states of a re
 
 ***
 
-**The layout is still very experimental,** so there are plenty of issues with it. So far, I've come across these:
+**The layout is still very experimental,** so there are plenty of problems to solve with it. So far, I've come across these:
 
 - Many mice and trackpads are terrible at horizontal scrolling.
 - Horizontal scrolling can feel awkward on small screens.
-- Old iOS devices and Nokia N9 require two fingers to scroll sections.
-- Android 1.6–2.3 browsers can't scroll sections at all.
 - Browser "back to top" shortcuts do not work.
-- Chrome on Android won't scroll horizontally.
+
+There are bugs too, of course:
+
+- Old iOS devices and Nokia N9 require two fingers to scroll sections.
+- Android <3.0 browsers can't scroll sections at all.
+- Opera Mini can't scroll sections either. (Oh crap.)
+- Chrome on Android won't scroll horizontally. (Can be avoided by scrolling a wrapper `<div>` instead of the viewport, but that causes a variety of other issues.)
 - Some mobile browsers initially zoom out to fit the entire page in the viewport horizontally.
 
 If you run into any issues not listed here, please [tweet at me](http://twitter.com/jonikorpi/).
