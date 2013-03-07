@@ -101,27 +101,15 @@ $(function() {
       scrollColumn('right');
     }
   });
-  
-  
-  
-  
-  // With clicks
-  
-  // With swipes
-  
-  
-  // Gauges Analytics
-  
-  var _gauges = _gauges || [];
+
+  var _gaq = _gaq || [];
+  _gaq.push(['_setAccount', 'UA-3628636-3']);
+  _gaq.push(['_trackPageview']);
+
   (function() {
-    var t   = document.createElement('script');
-    t.type  = 'text/javascript';
-    t.async = true;
-    t.id    = 'gauges-tracker';
-    t.setAttribute('data-site-id', '4f646a2d613f5d34f200009b');
-    t.src = '//secure.gaug.es/track.js';
-    var s = document.getElementsByTagName('script')[0];
-    s.parentNode.insertBefore(t, s);
+    var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+    ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+    var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
   })();
 
 });
