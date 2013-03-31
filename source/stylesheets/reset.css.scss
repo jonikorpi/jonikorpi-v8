@@ -22,6 +22,10 @@ $line-height: 24;
   @return $lines * ($context-line-height / $context-font-size) * 1em;
 }
 
+@function rem($factor, $context-font-size: $font-size) {
+ @return ($factor * $context-font-size) / $context-font-size * 1em; 
+}
+
 
 // Resetting margins, paddings and borders
 // (except in form elements)

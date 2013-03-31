@@ -1,65 +1,44 @@
 = wrap_layout 'layout' do
-
-  .column-wrapper
-  
-    .column.about
     
-      %header.logo
-        .avatar
-          = image_tag 'avatar-144.png'
-        %h1 Joni Korpi
-        %small Design Astronaut
-
-      = partial 'about'
-
-      %hr
-
-      %h2 Contact Details
+  %header#home.section
+    .canvas
+      .avatar
+        %a{href: '#home'}
+          = image_tag 'avatar-144.png', alt: 'Joni Korpi'
+    %nav.content
+      %small Scroll down for…
       %ul
         %li
-          %a{href: 'http://twitter.com/jonikorpi/'}
-            @jonikorpi on Twitter
-            %small The quickest way to contact me
+          %a{href: '#current-work'} Current Work
         %li
-          %a{href: 'mailto:me@jonikorpi.com'}
-            me@jonikorpi.com
-            %small The slowest way to contact me
-
-      %hr
-
-      %h2 Profiles & Lists
-      %ul
+          %a{href: '#grid-systems'} Grid Systems
         %li
-          %a{href: 'http://www.amazon.co.uk/registry/wishlist/3DNZ9C088YCXL'}
-            Amazon Wish List
-            %small Things I'd like to own
+          %a{href: '#writing'} Writing
         %li
-          %a{href: 'https://donenotdone.com/loves/jonikorpi'}
-            Done Not Done
-            %small Things I'd hate to forget
-        %li
-          %a{href: 'http://dribbble.com/jonikorpi'}
-            Dribbble
-            %small Things I'm working on
-        %li 
-          %a{href: 'http://www.kickstarter.com/profile/89875074'}
-            Kickstarter
-            %small Things I hope will launch
-
-      %hr
-      
-      %h2 Gaming
-      %ul
-        %li
-          %a{href: 'https://gate.eveonline.com/Profile/Mykkael'}
-            EVE Online
-            %small Virtual spaceships
-        %li
-          %a{href: 'http://steamcommunity.com/id/siegedbybears/'}
-            Steam Profile
-            %small Games, half of them unplayed
-
-    - blog.articles.each do |article|
-      - if not article.data.oldpost?
-        .column.project{id: "#{article.slug}"}
-          = article.body
+          %a{href: "#about-me"} About Me
+  
+  %article#current-work.section
+    .canvas
+      .cover-background{style: "background-image: url('/images/current-work.jpg')"}
+    .content
+      = partial 'content/current-work'
+  
+  %article#grid-systems.section
+    .canvas
+      .cover-background{style: "background-image: url('/images/grid-systems.png')"}
+    .content
+      = partial "content/grid-systems"
+  
+  %article#writing.section
+    .canvas
+      %h1.scaling-type 
+        Writing
+    .content
+      = partial "content/writing"
+  
+  %footer#about-me.section
+    .canvas
+      .avatar
+        = image_tag 'avatar-144.png', alt: 'Joni Korpi'
+    .content
+      = partial 'content/about'

@@ -1,107 +1,46 @@
-jQuery.easing['jswing'] = jQuery.easing['swing'];
-
-jQuery.extend( jQuery.easing,
-{
-	def: 'easeOutQuad',
-	swing: function (x, t, b, c, d) {
-		return jQuery.easing[jQuery.easing.def](x, t, b, c, d);
-	},
-	easeInOutQuart: function (x, t, b, c, d) {
-		if ((t/=d/2) < 1) return c/2*t*t*t*t + b;
-		return -c/2 * ((t-=2)*t*t*t - 2) + b;
-	},
-});
-
-
 $(function() {
 
-  // Forcibly show fallback fonts
-  // needed when people use script blockers and break webfont loaders
-  
-  function neckbeardFallback() {
-    document.getElementsByTagName('html')[0].className += ' neckbeardFallback'
-  }
-  
-  window.setTimeout(neckbeardFallback, 3500);
-  
-  
-  // SECTION SCROLLING
-
-  var scrollTime    = 424,
-      scrollElement = "html,body"
-      scrollEasing = 'easeInOutQuart';
-  
-  function scrollColumn(direction) {
-  
-    var scrollAmount;
-    var viewportScrolled = $(document).scrollLeft();
-    var chosenColumn;
-
-    if (direction == 'right') {
-      var columnsSelector = $('.column');
-    }
-
-    if (direction == 'left') {
-      var columnsSelector = $( $(".column").get().reverse() );
-    }
-
-    columnsSelector.each(function() {
-      var $this = $(this);
-      var columnPosition = $this.offset().left;
-      
-      if (direction == 'right') {
-        if (columnPosition > viewportScrolled) {
-          chosenColumn = $this;
-          scrollAmount = $this.offset().left;
-          return false;
-        }
-        if (viewportScrolled + $(window).width() == $(document).width()) {
-          scrollAmount = viewportScrolled;
-        }
-      }
-      else if (direction == 'left') {
-        if (columnPosition < viewportScrolled) {
-          chosenColumn = $this;
-          scrollAmount = $this.offset().left;
-          return false;
-        }
-        if (viewportScrolled == 0) {
-          scrollAmount = 0;
-        }
-      }
-    });
-    
+  // Bind toggle switches
+  $('.toggle-switch').on('click', function(event) {
     event.preventDefault();
-    $(scrollElement).stop().animate(
-      {"scrollLeft": scrollAmount}, 
-      scrollTime, 
-      scrollEasing
-    );
-    
-  }
-  
-  
-  // With keyboard
-  
-  var keyCode = {
-    up:    38,
-    down:  40,
-    left:  37,
-    right: 39
-  };
-  
-  $(document).keydown(function (e) {
-    var key = e.keyCode || e.which;
-  
-    if (key === keyCode.left) {
-      scrollColumn('left');
+    $this = $(this);
+    $target = $this.attr('data-toggle-target');
+    if ($target == '$next-sibling') {
+      $this.next().toggle();
     }
-  
-    if (key === keyCode.right) {
-      scrollColumn('right');
+    else if ($target == '$previous-sibling') {
+      $this.next().toggle();
+    }
+    else {
+      $($target).toggle();
     }
   });
 
+  
+  // Scrolling between sections
+  var scrollTime    = 414,
+      scrollElement = "html,body";
+  
+  $("a[href^='#']").on("click", function(event) {
+    event.preventDefault(); 
+    var $this   = $(this),
+        target  = this.hash,
+        $target = $(target);
+    
+    $(scrollElement).stop().animate({
+      "scrollTop": $target.offset().top
+    }, scrollTime, "swing", function () {
+      window.location.hash = target;
+    });
+  });
+  
+  
+  // Fallbacks for browsers that claim to support @font-face, but actually don't
+  if (!!navigator.userAgent.match(/(Android (1.0|1.1|1.5|1.6|2.0|2.1))|(Nokia)|(Opera (Mini|Mobi))|(w(eb)?OSBrowser)|(webOS)|(UCWEB)|(Windows Phone OS 7)|(XBLWP7)|(ZuneWP7)/)) {
+    $("html").removeClass("fontface").addClass("no-fontface");
+  }
+  
+  // Analytics
   var _gauges = _gauges || [];
   (function() {
     var t   = document.createElement('script');

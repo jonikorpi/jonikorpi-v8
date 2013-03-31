@@ -3,37 +3,20 @@
 @import 'reset';
 
 
-/*----------
-  Typography
-  ----------*/
-  
+//
+// Variables
+//
+
+// Typography
 $font-size: 16;
 $line-height: 22;
   
-@mixin elena {
-  font-family: elena-web-basic, serif;
-}
+@mixin elena     { font-family: elena-web-basic, serif; }
+@mixin ff-dagny  { font-family: ff-dagny-web-pro, sans-serif; }
+@mixin monospace { font-family: Menlo, Consolas, monospace; }
 
-@mixin ff-dagny {
-  font-family: ff-dagny-web-pro, sans-serif;
-  font-size: em($font-size - 1, $font-size);
-  line-height: lines(1, $font-size - 1)
-}
-
-@mixin monospace {
-  font-family: Menlo, Consolas, monospace;
-}
-
-code {
-  @include monospace;
-}
-
-
-/*-------
-  Colours
-  -------*/
-
-$primary-hue: 270;
+// Colours
+$primary-hue:   270;
 $secondary-hue: 270 - (360/1.618);
 
 $background:  hsl($primary-hue, 23.6%, 9%);
@@ -47,15 +30,13 @@ $emphasis:    hsl($secondary-hue, 14.6%, 76.4%);
 
 $link:        hsl($secondary-hue, 38.2%, 61.8%);
 
+// Media queries
+$m320: "screen and (min-width: 320px)";
 
-/*------
-  Layout
-  ------*/
-  
-$narrow-column: lines(10) + em(1);
-$wide-column: lines(16) + em(1);
-  
-$narrow: "screen and (min-width: #{$wide-column})";
+
+//
+// Basic styles
+//
 
 body {
   @include elena;
@@ -64,11 +45,6 @@ body {
   background: $background;
   color: $body;
   -webkit-tap-highlight-color: $link;
-}
-
-h1, h2, h3, strong {
-  @include ff-dagny;
-  color: $emphasis;
 }
 
 a {
@@ -86,231 +62,79 @@ a {
   }
 }
 
-::selection      { background: hsl($primary-hue, 38.2%, 61.8%); color: $emphasis; }
--moz-::selection { background: hsl($primary-hue, 38.2%, 61.8%); color: $emphasis; }
-
-p {
-  margin-top: lines(1);
-  //@include hyphens(auto);
-  
-  &:first-child { margin-top: 0; }
-}
-
-hr {
-  border-bottom: em(1) solid $highlight;
-  margin: lines(1) 0 (lines(1) - em(1));
+h1, h2, h3, h4, h5, h6,
+strong {
+  @include ff-dagny;
+  color: $emphasis;
 }
 
 code {
-  font-size: em(13);
-  line-height: lines(0.75, 13);
-  color: $offset;
-  font-family: Menlo, Consolas, monospace;
-  font-weight: normal;
+  @include monospace;
 }
 
-.column-wrapper {
-  font-size: 0px;
-  white-space: nowrap;
-  height: 100%;
-  width: 100%;
-  position: relative;
-  //overflow: hidden;
-  //overflow-x: auto;
-  //-webkit-overflow-scrolling: touch;
-  //overflow-scrolling: touch;
-}
+::selection      { background: hsl($primary-hue, 38.2%, 61.8%); color: $emphasis; }
+-moz-::selection { background: hsl($primary-hue, 38.2%, 61.8%); color: $emphasis; }
 
-.column {
-  font-size: $font-size * 1px;
-  @include box-sizing(border-box);
-  display: inline-block;
-  vertical-align: top;
-  white-space: normal;
+
+//
+// Repeating elements
+//
+
+.section {
   position: relative;
   overflow: hidden;
-  overflow-y: auto;
-  -webkit-overflow-scrolling: touch;
-  overflow-scrolling: touch;
-  padding: lines(1.5) lines(1) 0;
-  width: 100%;
-  height: 100%;
-  max-width: $wide-column + lines(1)*2;
-  border-right: 1px solid $highlight;
-  
-  & > *:last-child { margin-bottom: lines(2); }
-  
-  @media #{$narrow} {
-    max-width: $wide-column + lines(1.5)*2;
-    padding: lines(2) lines(1.5) 0;
-    & > *:last-child { margin-bottom: lines(3); }
-  }
-  
-  * {
-    visibility: hidden;
-    
-    .wf-active &,
-    .no-js &,
-    .neckbeardFallback & {
-      visibility: visible;
-    }
-  }
+  background: $background;
+  z-index: 100;
 }
 
-/*.column::-webkit-scrollbar {
-  width: lines(0.5);
-}
-
-.column::-webkit-scrollbar-thumb {
-  background: rgba(0,0,0, 0.236);
-  @include border-radius( lines(0.25) );
-  border: em(2) solid rgba(255,255,255, 0.09);
-  border-right-width: em(1);
-  //@include box-shadow( inset 0 0 em(2) rgba(255,255,255, 0.382) );
-}*/
-
-
-/*-----
-  About
-  -----*/
-
-.about {
-  max-width: $narrow-column + lines(1)*2;
-  background: $purple;
-  border-color: desaturate( lighten($purple, 5.6%), 5.6% );
-
-  @media #{$narrow} {
-    max-width: $narrow-column + lines(1.5)*2;
-  }
+.canvas {
+  position: fixed;
+  left: 0; top: 0; right: 0; bottom: 0;
+  z-index: 1;
   
-  .logo {
-    position: relative;
-    padding-left: lines(2.625);
-    z-index: 1;
-    
-    small {
-      color: $emphasis;
-    }
-  }
-
-  .avatar {
-    width: lines(2);
-    border: lines(0.125) solid $background;
-    position: absolute;
-    top: lines(-0.125); left: 0;
-    @include border-radius(em(3));
-    @include transition(all 0.685s ease-in-out);
-    
-    &:hover {
-      @include rotate(360deg);
-    }
-    
-    img {
-      width: 100%;
-      display: block;
-    }
-  }
-  
-  hr {
-    border-color: desaturate( lighten($purple, 5.6%), 5.6% );
-  }
-  
-  h2 {
-    @include elena;
-    font-weight: normal;
-    font-style: italic;
-  }
-  
-  li {
-    list-style: none;
-    margin-top: lines(1);
-    
-    a {
-      @include ff-dagny;
-    }
-    
-    small {
-      display: block;
-      color: $body;
-      @include elena;
-      font-style: italic;
-    }
-    
-    a:hover small { color: $emphasis; }
+  .cover-background {
     
   }
   
-  .sidenote {
-    color: $aside;
-  }
-  
-}
-  
-/*--------
-  Projects
-  --------*/
-
-.project {
-  
-  img {
-    display: block;
-    width: 100%;
-  }
-  
-  ul, ol {
-    margin-left: em(16);
-    margin-top: lines(1);
+  .scaling-type {
     
-    ul, ol {
-      margin-top: 0;
-    }
-  }
-  
-  ul li {
-    list-style: none;
-    position: relative;
-    
-    &:before {
-      content: "–";
-      position: absolute;
-      left: em(-16);
-    }
-  }
-  
-  del {
-      color: $aside;
-  }
-  
-  h1 {
-    margin-top: lines(1);
-    
-    &:first-child { margin-top: 0; }
   }
   
 }
 
-#writing-in-2011 {
-  max-width: $narrow-column + lines(1)*2;
+.content {
+  max-width: rem(30, 16);
+}
 
-  @media #{$narrow} {
-    max-width: $narrow-column + lines(1.5)*2;
-  }
-  
-  h1,
-  h1 + p {
-    font-style: italic;
-  }
-  
-  h1 + p {
-    margin-top: lines(0.25);
-  }
+
+//
+// Structure
+//
+
+#home {
   
 }
+
+#current-work {
   
+}
+
+#grid-systems {
   
-/*---------
-  Old posts
-  ---------*/
+}
+
+#writing {
+  
+}
+
+#about-me {
+  
+}
+
+  
+//
+// Old posts
+//
   
 .old-post {
   max-width: lines(21);
