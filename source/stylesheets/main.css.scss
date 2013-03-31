@@ -84,26 +84,37 @@ code {
   position: relative;
   overflow: hidden;
   background: $background;
-  z-index: 100;
+  z-index: 500;
+  min-height: 100%;
 }
 
 .canvas {
-  position: fixed;
-  left: 0; top: 0; right: 0; bottom: 0;
+  position: absolute;
+  overflow: hidden;
+  left: 0; top: 0; right: 0;
+  height: 100%;
   z-index: 1;
   
   .cover-background {
-    
+    position: absolute;
+    left: 0; top: 0; right: 0; bottom: 0;
+    background-repeat: no-repeat;
+    background-position: center top;
+    background-size: contain;
+    background-attachment: fixed;
   }
   
   .scaling-type {
     
-  }
-  
+  } 
 }
 
 .content {
   max-width: rem(30, 16);
+  padding: rem(1.618) rem(1);
+  margin: 0 auto;
+  position: relative;
+  z-index: 500;
 }
 
 
@@ -113,9 +124,41 @@ code {
 
 #home {
   
+  .canvas {
+    background: $purple;
+  }
+  
+  .avatar {
+    position: absolute;
+    left: 50%; top: 50%;
+    width: rem(5);
+    margin-top: rem(-2.5);
+    margin-left: rem(-2.5);
+    
+    img {
+      width: 100%;
+      display: block;
+    }
+  }
+  
+  .content {
+    background: $background;
+    text-align: center;
+  }
+  
 }
 
+$current-work-bg: rgb(245,244,242);
 #current-work {
+  
+  .cover-background {
+    background-color: $current-work-bg;
+    background-image: url("/images/current-work.jpg");
+  }
+  
+  .content {
+    background: lighten($current-work-bg, 14.6%);
+  }
   
 }
 
@@ -123,7 +166,19 @@ code {
   
 }
 
+$writing-bg: rgb(255,255,255);
 #writing {
+  
+  .canvas {
+    background-color: $writing-bg;
+    
+    h1 {
+      text-align: center;
+      font-size: rem(2.618);
+      line-height: rem(3);
+    }
+    
+  }
   
 }
 

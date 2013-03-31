@@ -15,7 +15,14 @@ $(function() {
       $($target).toggle();
     }
   });
-
+  
+  
+  // Work canvas pushers
+  function adjustPushers() {
+    $(".canvas-pusher").height($(window).height() * 0.91);
+  }
+  adjustPushers();
+  $(window).resize(adjustPushers());
   
   // Scrolling between sections
   var scrollTime    = 414,

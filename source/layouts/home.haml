@@ -5,7 +5,9 @@
       .avatar
         %a{href: '#home'}
           = image_tag 'avatar-144.png', alt: 'Joni Korpi'
+    .canvas-pusher      
     %nav.content
+      %h1 Joni Korpi
       %small Scroll down for…
       %ul
         %li
@@ -19,13 +21,15 @@
   
   %article#current-work.section
     .canvas
-      .cover-background{style: "background-image: url('/images/current-work.jpg')"}
+      .cover-background
+    .canvas-pusher
     .content
       = partial 'content/current-work'
   
   %article#grid-systems.section
     .canvas
-      .cover-background{style: "background-image: url('/images/grid-systems.png')"}
+      .cover-background
+    .canvas-pusher
     .content
       = partial "content/grid-systems"
   
@@ -33,6 +37,7 @@
     .canvas
       %h1.scaling-type 
         Writing
+    .canvas-pusher
     .content
       = partial "content/writing"
   
@@ -40,5 +45,6 @@
     .canvas
       .avatar
         = image_tag 'avatar-144.png', alt: 'Joni Korpi'
+    .canvas-pusher
     .content
       = partial 'content/about'
