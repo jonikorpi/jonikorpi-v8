@@ -17,22 +17,22 @@ $(function() {
 
   // Forcibly show fallback fonts
   // needed when people use script blockers and break webfont loaders
-  
+
   function neckbeardFallback() {
     document.getElementsByTagName('html')[0].className += ' neckbeardFallback'
   }
-  
+
   window.setTimeout(neckbeardFallback, 3500);
-  
-  
+
+
   // SECTION SCROLLING
 
   var scrollTime    = 424,
       scrollElement = "html,body"
       scrollEasing = 'easeInOutQuart';
-  
+
   function scrollColumn(direction) {
-  
+
     var scrollAmount;
     var viewportScrolled = $(document).scrollLeft();
     var chosenColumn;
@@ -48,7 +48,7 @@ $(function() {
     columnsSelector.each(function() {
       var $this = $(this);
       var columnPosition = $this.offset().left;
-      
+
       if (direction == 'right') {
         if (columnPosition > viewportScrolled) {
           chosenColumn = $this;
@@ -70,48 +70,43 @@ $(function() {
         }
       }
     });
-    
+
     event.preventDefault();
     $(scrollElement).stop().animate(
-      {"scrollLeft": scrollAmount}, 
-      scrollTime, 
+      {"scrollLeft": scrollAmount},
+      scrollTime,
       scrollEasing
     );
-    
+
   }
-  
-  
+
+
   // With keyboard
-  
+
   var keyCode = {
     up:    38,
     down:  40,
     left:  37,
     right: 39
   };
-  
+
   $(document).keydown(function (e) {
     var key = e.keyCode || e.which;
-  
+
     if (key === keyCode.left) {
       scrollColumn('left');
     }
-  
+
     if (key === keyCode.right) {
       scrollColumn('right');
     }
   });
 
-  var _gauges = _gauges || [];
-  (function() {
-    var t   = document.createElement('script');
-    t.type  = 'text/javascript';
-    t.async = true;
-    t.id    = 'gauges-tracker';
-    t.setAttribute('data-site-id', '4f646a2d613f5d34f200009b');
-    t.src = '//secure.gaug.es/track.js';
-    var s = document.getElementsByTagName('script')[0];
-    s.parentNode.insertBefore(t, s);
-  })();
+  !function(g,s,q,r,d){r=g[r]=g[r]||function(){(r.q=r.q||[]).push(
+  arguments)};d=s.createElement(q);q=s.getElementsByTagName(q)[0];
+  d.src='//d1l6p2sc9645hc.cloudfront.net/tracker.js';q.parentNode.
+  insertBefore(d,q)}(window,document,'script','_gs');
+
+  _gs('GSN-217690-T');
 
 });
